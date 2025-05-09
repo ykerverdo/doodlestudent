@@ -1,6 +1,12 @@
 name: woerkflow
 run-name: ${{ github.actor }} is learning GitHub Actions
-on: [push]
+on: 
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
@@ -11,3 +17,23 @@ jobs:
           node-version: '20'
       - run: npm install -g bats
       - run: bats -v
+
+jobs:
+  fuzz:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install clang
+        run: sudo apt-get install -y clang
+
+      - name: Build fuzzer
+        run: |
+          cd fuzz
+          chmod +x build.sh
+          ./build.sh
+
+      - name: Run fuzzer
+        run: |
+          ./fuzz/fuzz_target_1 -runs=1000
