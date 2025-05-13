@@ -1,11 +1,6 @@
 package fr.istic.tlc.resources;
 
-import fr.istic.tlc.services.Utils;
-
 import java.util.List;
-
-import jakarta.transaction.Transactional;
-import jakarta.validation.Valid;
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.istic.tlc.dao.PollRepository;
 import fr.istic.tlc.domain.Poll;
+import fr.istic.tlc.services.Utils;
 import io.quarkus.panache.common.Sort;
+import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import net.gjerull.etherpad.client.EPLiteClient;
 
 @RestController
