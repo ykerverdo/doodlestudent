@@ -46,6 +46,13 @@ You can then execute your native executable with: `./target/code-with-quarkus-1.
 
 If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.html.
 
+## Running Fuzzing Tests
+
+ ```shell
+ cd api
+ ./mvnw test
+ ```
+
 # RESTEasy JAX-RS
 
 Guide: https://quarkus.io/guides/rest-json

@@ -1,4 +1,4 @@
-name: woerkflow
+name: workflow
 run-name: ${{ github.actor }} is learning GitHub Actions
 on: 
   push:
@@ -36,3 +36,20 @@ jobs:
       - name: Run fuzzer
         run: |
           ./fuzz/fuzz_target_1 -runs=1000
+
+  run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Run Tests
+        run: |
+          cd api
+          ./mvnw test
