@@ -36,10 +36,18 @@
     margin-top: 1rem;
   }
   
+.red-theme {
+  background-color: #c46262; /* Example red theme */
+}
+
+.green-theme {
+  background-color: #43fbac; /* Example green theme */
+}
+
+  /* Version A (Green Button) */
   .Home_CreateLink {
     padding: 1rem;
     width: 100%;
-    background-color: #43dbac;
     color: white;
     text-decoration: none;
     border-radius: 5px;

@@ -25,3 +25,12 @@ jobs:
         run: |
           cd api
           ./mvnw test
+
+  ab-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch A/B Test Results
+        run: |
+          curl -s http://localhost:8080/api/abtest/results > results.json
+          echo "Results:"
+          cat results.json
